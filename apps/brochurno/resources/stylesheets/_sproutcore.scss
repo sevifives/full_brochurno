@@ -1,0 +1,45 @@
+.sc-scroll-view {
+  &:hover {
+    .sc-scroller-view {
+      @include opacity(1);
+    }
+  }
+  .sc-scroller-view {
+    @include opacity(0);
+    @include transition-property(opacity);
+    @include transition-duration(.5s);
+    .thumb {
+      right: 2px;
+      left: 0px;
+      position: absolute;
+      background: rgba(#000,0.5);
+      border: 1px solid rgba(#fff,0.5);
+      @include border-radius(5px);
+    }
+  }
+}
+
+.for-sc-panel {
+  background: rgba(#000,0.7);
+}
+
+.sc-view .sc-button-view {
+  @include background(linear-gradient(#cecece,#aeaeae));
+  @include border-radius(5px);
+  border: 1px solid #999;
+  font-size: .7em;
+  vertical-align: middle;
+  label {
+    top: 2px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    @include text-shadow(#fff -1px 1px 1px);
+  }
+  &.active {
+    @include background(linear-gradient(#aaa,#999));
+  }
+}

@@ -1,0 +1,203 @@
+sc_require("resources/stylesheets/_base.scss");
+sc_require("resources/stylesheets/_general.scss");
+sc_require("resources/stylesheets/_sproutcore.scss");
+
+$default-text-shadow-color: rgba(black, 1);
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 1px;
+$serif-family: "Georgia",Georgia,serif;
+$sans-serif-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+
+strong {
+  font-weight: bold;
+}
+#brochurno-app {
+  background: #fff;
+  font-family: $sans-serif-family;
+  a {
+    color: #d87500;
+    text-decoration: none;
+  }
+  .attachment-link {
+    color: #00a67c;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#header {
+  overflow: visible;
+  @include background(linear-gradient(#0074b6, #00348e 95%));
+  border-bottom: 1px solid rgba(white, 0.1);
+  .sc-segmented-view {
+    width: auto;
+    .sc-segment-view,.sc-middle-segment {
+      @include transition-property(background);
+      @include transition-duration(0.75s);
+      &:hover {
+        label {
+          color: #ffbd70;
+        }
+      }
+      height: 100%;
+      background: none;
+      border: none;
+      padding: 0 30px;
+      font-size: .8em;
+      label {
+        @include transition-property(color);
+        @include transition-duration(0.75s);
+        font-weight: bold;
+        position: relative;
+        top: 2em;
+        color: #dedede;
+        @include single-text-shadow;
+      }
+    }
+    .sc-segment-view.sel {
+      border-right: 1px solid rgba(white, 0.25);
+      border-left: 1px solid rgba(#ffffaa, 0.25);
+      padding: 0 29px 0 30px;
+      @include background(linear-gradient(left, rgba(#111111, 0.5), rgba(#222222, 0.5) 10%, rgba(#222222, 0.5) 90%, rgba(#111111, 0.5)));
+    }
+  }
+}
+
+#main-content {
+  border-top: 1px solid rgba(black, 0.7);
+}
+
+#footer {
+  @include background(linear-gradient(#222222, #333333 95%));
+  border-top: #999999 1px solid;
+}
+
+.article-content, .section-content {
+  line-height: 30px;
+  font-size: .8em;
+  p {
+    line-height: 30px;
+  }
+}
+
+.section-content,.article-content {
+  color: #333;
+  h2 {
+    font-size: 2em;
+    font-family: $sans-serif-family;
+    line-height: 2em;
+    background: rgba(#000,.05);
+    padding: 10px;
+    color: #0074b6;
+    @include text-shadow(#fff -1px 1px 1px);
+    border-bottom: 2px solid #cecece;
+    -moz-border-bottom-colors: #cecece #fff;
+  }
+  h3 {
+    margin-top: 1em;
+    font-size: 1.5em;
+    line-height: 2em;
+    font-family: $sans-serif-family;
+    color: #0074b6;
+    @include text-shadow(#fff -1px 1px 1px);
+    padding: 0 10px;
+  }
+  ul {
+    margin-left: 30px;
+  }
+  p {
+    margin-top: 1em;
+    padding: 0 10px;
+  }
+}
+
+.articles {
+  background-color: #222222;
+  .sc-list-item-view {
+    @include transition-property(background-color);
+    @include transition-duration(0.5s);
+    p {
+      @include transition-property(left);
+      @include transition-duration(0.5s);
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 50%;
+      margin-top: 5px;
+      color: rgba(#fff,0.75);
+      font-size: .8em;
+    }
+    &:hover {
+      background-color: #111111;
+      .sc-outline {
+        label {
+          left: 30px;
+        }
+      }
+      p {
+        left: 30px;
+      }
+    }
+    border-top: 1px solid #333333;
+    .sc-outline {
+      label {
+        @include transition-property(left);
+        @include transition-duration(0.5s);
+        color: white;
+        left: 10px;
+        margin-top: -15px;
+      }
+    }
+  }
+  .sc-list-item-view.sel {
+    border-top: 1px solid #333333;
+    background: #000;
+    .sc-outline {
+      label {
+        left: 30px; 
+      }
+      p {
+        left: 30px;
+      }
+    }
+  }
+}
+
+.attachment {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  margin: 10px;
+  background: #000;
+}
+
+#main-logo {
+  @include slice('images/logos/logo-large.png',$repeat: no-repeat);
+}
+#mini-logo {
+  @include slice('images/logos/logo-small.png',$repeat: no-repeat);
+}
+#header {
+  @include slice('images/dom/50.png',$repeat: repeat-both);
+}
+
+#home {
+  @include transition-property(left);
+  @include transition-duration(200);
+}
+
+.github-icon {
+  @include slice("images/icons/github_blue_black_cat_32.png");
+  &.active {
+    @include slice("images/icons/github_white_black_cat_32.png");
+  }
+}
+
+.twitter-icon {
+  @include slice("images/icons/twitter-icon.png");
+  &.active {
+    @include slice("images/icons/twitter-icon-active.png");
+  }
+}
+
